@@ -19,13 +19,16 @@ ASR/TTS 与数字人。
 
 ## 运行方式
 
-1. 复制 `.env.example` 为 `.env`，填写真实配置。
-2. 安装依赖：`uv sync` 或 `pip install -e .`。
-3. 启动：`uvicorn app.main:app --reload --port 8000`。
-4. 检查：`curl http://127.0.0.1:8000/health`。
+1. 启动 SSH 隧道：
+   `ssh -i C:\Users\LENOVO\.ssh\ariechovi.pem -L 16379:localhost:6379 -L 15432:localhost:5432 root@111.230.199.27`
+2. 激活 Python 环境：`conda activate voiceagent`。
+3. 复制 `.env.example` 为 `.env`，填写数据库密码、DeepSeek Key 和阿里云 Key。
+4. 安装依赖：`uv sync` 或 `pip install -e .`。
+5. 启动：`uvicorn app.main:app --reload --port 8000`。
+6. 检查：`curl http://127.0.0.1:8000/health`。
 
 ## 待确认
 
-- SSH 隧道的本地端口与数据库密码，只写入本机 `.env`。
-- 对话模型与 Embedding 供应商。
+- 数据库密码、DeepSeek Key、阿里云 Key 只写入本机 `.env`。
+- `qwen3.7-text-embedding` 的准确 API 模型名与向量维度待核验。
 

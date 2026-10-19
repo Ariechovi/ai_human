@@ -8,14 +8,14 @@ class Settings(BaseSettings):
     app_env: str = "dev"
 
     database_url: str = ""
-    redis_url: str = "redis://127.0.0.1:6379/0"
+    redis_url: str = "redis://127.0.0.1:16379/0"
 
-    model_name: str = "gpt-4o-mini"
-    model_base_url: str | None = None
+    model_name: str = "deepseek-chat"
+    model_base_url: str | None = "https://api.deepseek.com"
     model_api_key: str = ""
 
-    embedding_model: str = "text-embedding-3-small"
-    embedding_base_url: str | None = None
+    embedding_model: str = "qwen3.7-text-embedding"
+    embedding_base_url: str | None = "https://dashscope.aliyuncs.com/compatible-mode/v1"
     embedding_api_key: str = ""
 
     vector_dim: int = 1536
